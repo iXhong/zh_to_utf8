@@ -1,23 +1,34 @@
+'''
+This is python script to convert the Chinese to
+a utf-8 like encoded style which used in Browser.
+change the parameter to use the function
+'''
+
 def zh_utf8(zh_name):
 
     zh_encode = list(str(zh_name.encode('utf-8')))
+    #convert to standard UTF-8 encode`
     del zh_encode[0:2]
     del zh_encode[-1]
+    #delete the first two and last one char
 
-    return zh_encode
+    i = 0
+    for char in zh_encode:
+        if char == '\\':
+            del  zh_encode[i]
+        i = i + 1
+    #delete "\\"
 
-def odd_list(num):
-    #generate n odd numbers from 1
     n = 0
-    odd_num = 0
-    odd_list = []
+    for char in zh_encode:
+        if char == 'x':
+            zh_encode[n] = '%'
+        n = n + 1
+    #replace "x" with '%
 
-    while len(odd_list) < num:
-        odd_num = 2*n+1
-        n  = n + 1
-        odd_list.append(odd_num)
+    zh_utf8 = ''.join(zh_encode)
+    #convert a list to string without separator ","
 
-    return odd_list
+    return zh_utf8.title()
 
-# print(zh_utf8("一拳超人"))
-print(odd_list(4))
+print(zh_utf8("一拳超人"))
