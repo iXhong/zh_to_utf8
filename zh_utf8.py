@@ -4,7 +4,7 @@ a utf-8 like encoded style which used in Browser.
 change the parameter to use the function
 '''
 
-def zh_utf8(zh_name):
+def zh_to_utf8(zh_name):
 
     zh_encode = list(str(zh_name.encode('utf-8')))
     #convert to standard UTF-8 encode`
@@ -31,4 +31,6 @@ def zh_utf8(zh_name):
 
     return zh_utf8.title()
 
-print(zh_utf8("一拳超人"))
+zh_name = input("请输入欲转换的中文名称：")
+
+print(zh_to_utf8(zh_name))
