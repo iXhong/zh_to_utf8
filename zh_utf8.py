@@ -29,7 +29,7 @@ def zh_to_utf8(zh_name):
     zh_utf8 = ''.join(zh_encode)
     #convert a list to string without separator ","
 
-    return zh_utf8.title()
+    return zh_utf8.upper()
 
 zh_name = input("请输入欲转换的中文名称：")
 
